@@ -37,11 +37,11 @@
 #include <QScrollArea>
 #include <QStringListModel>
 #include <QtCore/QMutex>
+#include "carlabase_export.h"
 
-// carla/source/includes
-#define REAL_BUILD // FIXME this shouldn't be needed
+#include "CarlaNative.h"
 #if CARLA_VERSION_HEX >= 0x010911
-    #include "CarlaNativePlugin.h"
+	#include "CarlaNativePlugin.h"
 #else
     #include "CarlaBackend.h"
     #include "CarlaNative.h"
@@ -59,7 +59,7 @@
 #include "InstrumentView.h"
 #include "Knob.h"
 #include "SubWindow.h"
-#include "plugin_export.h"
+
 
 class QPushButton;
 
@@ -87,7 +87,7 @@ public:
 
 // -------------------------------------------------------------------
 
-class PLUGIN_EXPORT CarlaInstrument : public Instrument
+class CARLABASE_EXPORT CarlaInstrument : public Instrument
 {
     Q_OBJECT
 
@@ -153,7 +153,7 @@ private:
 
 // -------------------------------------------------------------------
 
-class CarlaInstrumentView : public InstrumentView
+class CarlaInstrumentView : public InstrumentViewFixedSize
 {
     Q_OBJECT
 
